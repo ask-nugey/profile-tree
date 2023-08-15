@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 export default function Page() {
   const router = useRouter();
   const { currentIndex, answers, goToNextQuestion, isComplete } = useQuestionnaire();
-  const { question } = useQuestion(currentIndex);
+  const { question }: any = useQuestion(currentIndex);
 
   useEffect(() => {
     if (isComplete) {
@@ -28,7 +28,7 @@ export default function Page() {
         </h1>
 
         <div className='c-questionList'>
-          {question?.choices.map((choice, index) => (
+          {question?.choices.map((choice: any, index: any) => (
             <button
               className='c-questioItem'
               key={index}
