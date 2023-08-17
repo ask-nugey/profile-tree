@@ -1,9 +1,10 @@
 "use client"
 
+import { Question } from '@/types';
 import { useState, useEffect } from 'react';
 
 export const useQuestion = (id: number) => {
-  const [question, setQuestion] = useState(null);
+  const [question, setQuestion] = useState<Question | null>(null);
 
   useEffect(() => {
     const getData = async (id: number) => {

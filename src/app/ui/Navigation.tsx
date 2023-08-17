@@ -2,13 +2,18 @@
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import { NavLink } from '@/types';
 
-export function Navigation({ navLinks }: any) {
+interface Props {
+  navLinks: NavLink[];
+}
+
+export function Navigation({ navLinks }: Props) {
   const pathname = usePathname()
 
   return (
     <>
-      {navLinks.map((link: any) => {
+      {navLinks.map((link) => {
         const isActive = pathname === link.href
 
         return (

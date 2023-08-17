@@ -1,7 +1,8 @@
 import { Navigation } from "@/app/ui/Navigation";
+import { NavLink } from "@/types";
 import Link from "next/link";
 
-const navLinks = [
+const navLinks: NavLink[] = [
   {
     href: '/question',
     name: '質問に答える'

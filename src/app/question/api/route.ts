@@ -1,3 +1,4 @@
+import { Question } from '@/types'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
@@ -5,6 +6,7 @@ export async function GET() {
     next: { revalidate: 60 },
   })
   const data = await res.json()
+  const questions: Question[] = data.questions
 
-  return NextResponse.json(data)
+  return NextResponse.json(questions)
 }

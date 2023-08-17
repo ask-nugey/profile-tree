@@ -7,8 +7,8 @@ import { useEffect } from 'react';
 
 export default function Page() {
   const router = useRouter();
-  const { currentIndex, answers, goToNextQuestion, isComplete } = useQuestionnaire();
-  const { question }: any = useQuestion(currentIndex);
+  const { currentIndex, goToNextQuestion, isComplete } = useQuestionnaire();
+  const { question } = useQuestion(currentIndex);
 
   useEffect(() => {
     if (isComplete) {
@@ -16,7 +16,7 @@ export default function Page() {
     }
   }, [isComplete, router]);
 
-  const handleChoiceClick = (result: string) => {
+  const handleChoiceClick = (result: string): void => {
     goToNextQuestion(result);
   };
 
@@ -28,7 +28,7 @@ export default function Page() {
         </h1>
 
         <div className='c-questionList'>
-          {question?.choices.map((choice: any, index: any) => (
+          {question?.choices.map((choice: string, index: number) => (
             <button
               className='c-questioItem'
               key={index}
