@@ -27,17 +27,31 @@ export default function Page() {
           {question?.content}
         </h1>
 
-        <div className='c-questionList'>
-          {question?.choices.map((choice: string, index: number) => (
-            <button
-              className='c-questioItem'
-              key={index}
-              onClick={() => handleChoiceClick(choice)}
-            >
-              {choice}
-            </button>
-          ))}
-        </div>
+
+        {/* <div className='c-questionList'>
+          {question?.choices
+            ? (
+            question.choices.map((choice, index) => (
+              <button
+                className='c-questioItem'
+                key={index}
+                onClick={() => handleChoiceClick(choice.value)}
+              >
+                {choice.displayValue}
+              </button>
+            ))
+          ) : (
+            question?.numericValues?.map((numericValue, index) => (
+              <button
+                className='c-questioItem'
+                key={index}
+                onClick={() => handleChoiceClick(numericValue)}
+              >
+                {numericValue}
+              </button>
+            ))
+          )}
+        </div> */}
       </div>
     </main>
   );
