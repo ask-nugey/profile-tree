@@ -1,12 +1,16 @@
+import { questions } from '@/data/questions';
 import { Question } from '@/types'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  const res = await fetch('https://98eead25-4b94-4995-a50e-d962c7f98a34.mock.pstmn.io', {
-    next: { revalidate: 60 },
-  })
-  const data = await res.json()
-  const questions: Question[] = data.questions
+  const res = await fetch(
+    "https://cb7980ab-942a-4a59-9c7e-19afd71184ac.mock.pstmn.io/questions",
+    {
+      next: { revalidate: 60 },
+    }
+  );
+  // const data: Question[] = await res.json()
+  const data: Question[] = questions
 
-  return NextResponse.json(questions)
+  return NextResponse.json(data);
 }

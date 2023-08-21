@@ -1,9 +1,10 @@
-"use client"
+"use client";
 
-import { useRouter } from 'next/navigation';
-import { useQuestionnaire } from '@/app/question/useQuestionnaire';
-import { useQuestion } from '@/app/question/useQuestion';
-import { useEffect } from 'react';
+import { useRouter } from "next/navigation";
+import { useQuestionnaire } from "@/app/question/useQuestionnaire";
+import { useQuestion } from "@/app/question/useQuestion";
+import { useEffect } from "react";
+import QuestionList from "@/app/question/QuestionList";
 
 export default function Page() {
   const router = useRouter();
@@ -12,32 +13,29 @@ export default function Page() {
 
   useEffect(() => {
     if (isComplete) {
-      router.push('/profile');
+      router.push("/profile");
     }
   }, [isComplete, router]);
 
-  const handleChoiceClick = (result: string): void => {
-    goToNextQuestion(result);
+  const handleChoiceClick = (
+    questionId: number,
+    values: (string | number)[]
+  ): void => {
+    goToNextQuestion(questionId, values);
   };
 
   return (
     <main>
-      <div className='c-block'>
-        <h1 className='c-questionTitle'>
-          {question?.content}
-        </h1>
+      <div className="c-block">
+        <h1 className="c-questionTitle">{question?.content}</h1>
 
-        <div className='c-questionList'>
-          {question?.choices.map((choice: string, index: number) => (
-            <button
-              className='c-questioItem'
-              key={index}
-              onClick={() => handleChoiceClick(choice)}
-            >
-              {choice}
-            </button>
-          ))}
+        <div>
+          <QuestionList
+            question={question}
+            handleChoiceClick={handleChoiceClick}
+          />
         </div>
+
       </div>
     </main>
   );

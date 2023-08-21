@@ -19,5 +19,7 @@ export const useQuestion = (id: number) => {
     getData(id)
   }, [id]);
 
+  console.log(question);
+
   return { question };
 };

@@ -2,73 +2,84 @@
   "questions": [
     {
       "id": 1,
-      "tag": "",
-      "type": "single",
-      "content": "あなたの好きな色は？",
-      "choices": ["赤", "青", "緑", "黄色"]
+      "content": "あなたの好きな色は何ですか？",
+      "displayType": "text_and_icon",
+      "categoryIds": 1,
+      "tagIds": [1, 2],
+      "groupIds": [1],
+      "prefix": "好きな色",
+      "icon": "color_icon",
+      "type": "single_choice",
+      "choices": [
+        {
+          "type": "text",
+          "value": "red",
+          "displayValue": "赤",
+          "answerText": "赤",
+          "description": "情熱的な色",
+          "colorCode": "#FF0000",
+          "icon": "red_icon"
+        },
+        {
+          "type": "text",
+          "value": "blue",
+          "displayValue": "青",
+          "answerText": "青",
+          "description": "落ち着いた色",
+          "colorCode": "#0000FF",
+          "icon": "blue_icon"
+        }
+      ]
     },
     {
       "id": 2,
-      "tag": "",
-      "type": "single",
-      "content": "あなたの血液型は？",
-      "choices": ["A型", "B型", "O型", "AB型"]
+      "content": "あなたの年齢は？",
+      "displayType": "text",
+      "categoryIds": 2,
+      "tagIds": [3],
+      "prefix": "年齢",
+      "type": "numeric",
+      "choices": [
+        {
+          "type": "range",
+          "minValue": 0,
+          "maxValue": 150,
+          "stepSize": 1,
+          "default": 75,
+          "unit": "歳",
+          "displayType": "slider",
+          "answerText": "年齢"
+        }
+      ]
     },
     {
       "id": 3,
-      "tag": "",
-      "type": "single",
-      "content": "ペットは飼っている？",
-      "choices": ["はい", "いいえ"]
-    },
-    {
-      "id": 4,
-      "tag": "",
-      "type": "single",
-      "content": "あなたの好きな季節は？",
-      "choices": ["春", "夏", "秋", "冬"]
-    },
-    {
-      "id": 5,
-      "tag": "",
-      "type": "single",
-      "content": "休日の過ごし方は？",
-      "choices": ["外出", "家でのんびり", "趣味を楽しむ", "友人と遊ぶ"]
-    },
-    {
-      "id": 6,
-      "tag": "",
-      "type": "single",
-      "content": "あなたの好きな食べ物は？",
-      "choices": ["寿司", "ラーメン", "焼き肉", "天ぷら"]
-    },
-    {
-      "id": 7,
-      "tag": "",
-      "type": "single",
-      "content": "通勤・通学時の移動手段は？",
-      "choices": ["車", "バス", "電車", "自転車"]
-    },
-    {
-      "id": 8,
-      "tag": "",
-      "type": "single",
-      "content": "音楽のジャンルで好きなのは？",
-      "choices": ["ロック", "J-POP", "クラシック", "ジャズ"]
-    },
-    {
-      "id": 9,
-      "tag": "",
-      "type": "single",
-      "content": "休みの日によくすることは？",
-      "choices": ["読書", "映画鑑賞", "料理", "運動・スポーツ"]
-    },
-    {
-      "id": 10,
-      "tag": "",
-      "type": "single",
-      "content": "旅行に行くなら、どこが良い？",
-      "choices": ["海外", "国内", "自然豊かな場所", "都市部"]
+      "content": "好きな数字を選んでください。",
+      "displayType": "text",
+      "categoryIds": 3,
+      "tagIds": [4, 5],
+      "prefix": "好きな数字",
+      "type": "multiple_choice",
+      "choices": [
+        {
+          "type": "text",
+          "value": "one",
+          "displayValue": "1",
+          "answerText": "1"
+        },
+        {
+          "type": "text",
+          "value": "two",
+          "displayValue": "2",
+          "answerText": "2"
+        },
+        {
+          "type": "text",
+          "value": "three",
+          "displayValue": "3",
+          "answerText": "3"
+        }
+      ]
     }
   ]
 }
