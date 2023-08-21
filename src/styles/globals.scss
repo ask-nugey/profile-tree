@@ -29,7 +29,9 @@ header {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+p
+{
   margin: 0;
 }
 
@@ -99,5 +101,43 @@ button {
 }
 
 .c-answerItem {
+  position: relative;
+  display: flex;
+  padding: 12px 6px;
   font-weight: 700;
+  border-bottom: 1px solid #c1c1c1;
+  overflow: hidden;
+  z-index: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background-color: #fff;
+    filter: blur(16px);
+    opacity: .8;
+    z-index: -1;
+  }
+
+  &:first-child {
+    border-top: 1px solid #c1c1c1;
+  }
+
+  .title {
+    position: relative;
+    min-width: 6em;
+
+    &::before {
+      content: '：';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      font-weight: 400;
+    }
+  }
+
+  .text {
+    font-weight: 400;
+  }
 }
