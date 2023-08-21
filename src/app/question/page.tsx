@@ -29,12 +29,10 @@ export default function Page() {
       <div className="c-block">
         <h1 className="c-questionTitle">{question?.content}</h1>
 
-        <div>
-          <QuestionList
-            question={question}
-            handleChoiceClick={handleChoiceClick}
-          />
-        </div>
+        <QuestionList
+          question={question}
+          handleChoiceClick={handleChoiceClick}
+        />
 
       </div>
     </main>
