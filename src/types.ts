@@ -72,13 +72,13 @@ type BaseChoice = {
 };
 
 // テキスト選択肢のデータ型
-type TextChoice = BaseChoice & {
+export type TextChoice = BaseChoice & {
   type: "text";
   value: string; // BaseChoiceのvalueをオーバーライド
 };
 
 // 数値選択肢のデータ型
-type NumericChoice = BaseChoice & {
+export type NumericChoice = BaseChoice & {
   type: "numeric";
   value: number; // BaseChoiceのvalueをオーバーライド
   unit?: string;

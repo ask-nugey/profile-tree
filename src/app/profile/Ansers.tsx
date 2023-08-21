@@ -1,8 +1,21 @@
-"use client"
+"use client";
 
+import {
+  Answer,
+  NumericChoice,
+  Question,
+  QuestionType,
+  TextChoice,
+} from "@/types";
 import { useEffect } from "react";
 
-export default function Ansers({answers, questions, setQuestions}) {
+interface Props {
+  answers: Answer[];
+  questions: Question[] | null;
+  setQuestions: Function;
+}
+
+export default function Ansers({ answers, questions, setQuestions }: Props) {
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(`/question/api/`, {
@@ -25,11 +38,31 @@ export default function Ansers({answers, questions, setQuestions}) {
   // value から対応する answerText を取得するヘルパー関数
   const getAnswerText = (
     questionId: number,
-    value: string
+    value: string | number
   ): string | undefined => {
     const question = questions?.find((q) => q.id === questionId);
-    const choice = question?.choices.find((c) => c.value === value);
-    return choice?.answerText;
+
+    if (!question) return;
+
+    switch (question.type) {
+      case QuestionType.SINGLE_CHOICE:
+      case QuestionType.MULTIPLE_CHOICE:
+        return question.choices.find(
+          (choice: TextChoice) => choice.value === value
+        )?.answerText;
+
+      case QuestionType.NUMERIC:
+        return question.choices.find(
+          (choice: NumericChoice) => choice.value === value
+        )?.answerText;
+
+      case QuestionType.RANGE:
+        // RANGE タイプの場合の取得ロジックを追加
+        break;
+
+      default:
+        return;
+    }
   };
 
   return (
@@ -46,4 +79,4 @@ export default function Ansers({answers, questions, setQuestions}) {
       ))}
     </div>
   );
-};
+}
