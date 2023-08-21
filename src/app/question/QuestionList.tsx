@@ -1,17 +1,30 @@
-import React from 'react'
+import { Question } from "@/types";
+import React from "react";
 
-const QuestionList = ({ question }) => {
+interface Props {
+  question: Question | null;
+  handleChoiceClick: Function;
+}
+
+export default function QuestionList({
+  question,
+  handleChoiceClick
+}: Props) {
   return (
-    <div>
-      <div key={question.id}>
-        <ul>
-          {question.choices.map((choice, choiceIdx) => (
-            <li key={choiceIdx}>{choice.displayValue}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <ul className="c-questionList">
+      {question?.choices.map((choice, choiceIdx) => (
+        <button
+          className="c-questioItem"
+          key={choiceIdx}
+          onClick={() => handleChoiceClick(question.id, choice.value)}
+          style={{
+            color: choice.colorCode,
+            borderColor: choice.colorCode,
+          }}
+        >
+          {choice.displayValue}
+        </button>
+      ))}
+    </ul>
   );
-};
-
-export default QuestionList
+}

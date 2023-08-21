@@ -136,7 +136,7 @@ export type Question =
   & QuestionAttributes;
 
 // ＜回答＞
-type Answer = {
+export type Answer = {
   questionId: number;
   values: (string | number)[]; // 文字列の選択肢または数値を受け付ける
 };

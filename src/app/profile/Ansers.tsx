@@ -8,11 +8,9 @@ export default function Ansers() {
   return (
     <ul className="c-answerList">
       {answers.map((answer, index) => (
-        <li
-          className="c-answerItem"
-          key={index}
-        >
-          {answer}
+        <li className="c-answerItem" key={index}>
+          {answer?.questionId}
+          {answer?.values.map((value) => ( value ))}
         </li>
       ))}
     </ul>
