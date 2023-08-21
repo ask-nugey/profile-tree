@@ -1,3 +1,4 @@
+import { questions } from '@/data/questions';
 import { Question } from '@/types'
 import { NextRequest, NextResponse } from 'next/server'
 
@@ -5,14 +6,17 @@ export async function GET(
   request: Request,
   { params }: { params: { id: string } }
 ) {
-  const res = await fetch('https://98eead25-4b94-4995-a50e-d962c7f98a34.mock.pstmn.io', {
-    next: { revalidate: 60 },
-  })
-  const data = await res.json()
-  const questions: Question[] = data.questions
-  const questionById = questions.find((p) => p.id === parseInt(params.id))
+  const res = await fetch(
+    "https://cb7980ab-942a-4a59-9c7e-19afd71184ac.mock.pstmn.io/questions",
+    {
+      next: { revalidate: 60 },
+    }
+  );
+  // const data: Question[] = await res.json();
+  const data: Question[] = questions
+  const dataById = data.find((p) => p.id === parseInt(params.id));
 
-  return NextResponse.json(questionById)
+  return NextResponse.json(dataById)
 }
 
 // 更新

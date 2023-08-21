@@ -33,10 +33,11 @@
     },
     {
       "id": 2,
-      "content": "あなたの年齢の範囲は？",
+      "content": "あなたの年齢は？",
       "displayType": "text",
       "categoryIds": 2,
       "tagIds": [3],
+      "prefix": "年齢",
       "type": "numeric",
       "choices": [
         {
@@ -57,6 +58,7 @@
       "displayType": "text",
       "categoryIds": 3,
       "tagIds": [4, 5],
+      "prefix": "好きな数字",
       "type": "multiple_choice",
       "choices": [
         {

@@ -5,21 +5,21 @@ export type NavLink = {
 };
 
 // ＜タグ＞
-type Tag = {
+export type Tag = {
   id: number;
   value: string;
   displayName: string;
 };
 
 // ＜カテゴリー＞
-type Category = {
+export type Category = {
   id: number;
   value: string;
   displayName: string;
 };
 
 // ＜表示用グループ＞
-type Group = {
+export type Group = {
   id: number;
   value: string;
   displayName: string;
@@ -28,7 +28,7 @@ type Group = {
 
 // ＜質問＞
 // 質問のタイプを示すenum
-enum QuestionType {
+export enum QuestionType {
   SINGLE_CHOICE = "single_choice",
   MULTIPLE_CHOICE = "multiple_choice",
   NUMERIC = "numeric",
@@ -36,8 +36,8 @@ enum QuestionType {
   // ... 他の質問タイプが必要な場合、ここに追加する
 }
 
-// 質問の表示方法を示すenum
-enum DisplayType {
+// 表示方法を示すenum
+export enum DisplayType {
   TEXT = "text",
   TEXT_AND_ICON = "text_and_icon",
   // ... 他の表示タイプが必要な場合、ここに追加する
@@ -55,13 +55,13 @@ type QuestionMainAttributes = {
   categoryIds: number;
   tagIds: number[];
   groupIds?: number[];
-  prefix?: string;
+  prefix?: string;  // 回答を表示するときのタイトル
   icon?: string;
 };
 
 // 選択肢の共通項
 type BaseChoice = {
-  value: string | number;
+  value?: string | number;
   displayValue?: string;
   answerText?: string;
   description?: string;
@@ -84,7 +84,7 @@ type NumericChoice = BaseChoice & {
   unit?: string;
 };
 
-enum RangeDisplayType {
+export enum RangeDisplayType {
   SELECT = "select",
   SLIDER = "slider",
   // ... 他の表示タイプが必要な場合、ここに追加する
@@ -130,9 +130,10 @@ type QuestionAttributes =
   | RangeAttributes;
 
 // 最終的な質問のデータ型
-export type Question = BaseQuestion &
-  QuestionMainAttributes &
-  QuestionAttributes;
+export type Question =
+  & BaseQuestion
+  & QuestionMainAttributes
+  & QuestionAttributes;
 
 // ＜回答＞
 type Answer = {

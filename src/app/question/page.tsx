@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useQuestionnaire } from '@/app/question/useQuestionnaire';
 import { useQuestion } from '@/app/question/useQuestion';
 import { useEffect } from 'react';
+import QuestionList from '@/app/question/QuestionList';
 
 export default function Page() {
   const router = useRouter();
@@ -27,6 +28,9 @@ export default function Page() {
           {question?.content}
         </h1>
 
+        <div>
+          <QuestionList question={question} />
+        </div>
 
         {/* <div className='c-questionList'>
           {question?.choices
