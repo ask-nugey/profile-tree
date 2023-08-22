@@ -1,6 +1,7 @@
 html,
 body {
   margin: 0;
+  overflow: hidden;
 }
 
 body::after {
@@ -101,7 +102,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 80vh;
 }
 
 .c-block {
@@ -151,7 +152,7 @@ main {
   z-index: 0;
 
   &::before {
-    content: '';
+    content: "";
     inset: 0;
     position: absolute;
     border-radius: inherit;
