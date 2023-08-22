@@ -10,7 +10,7 @@ export const questions: Question[] = [
     groupIds: [1],
     prefix: "好きな色",
     icon: "color_icon",
-    type: QuestionType.SINGLE_CHOICE,
+    type: QuestionType.MULTIPLE_CHOICE,
     choices: [
       {
         type: "text",

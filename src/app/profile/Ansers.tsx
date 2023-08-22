@@ -70,11 +70,13 @@ export default function Ansers({ answers, questions, setQuestions }: Props) {
       {answers.map((answer, index) => (
         <div className="c-answerItem" key={index}>
           <p className="title">{getQuestionPrefix(answer?.questionId)}</p>
-          {answer?.values.map((value, valueIndex) => (
-            <p className="text" key={valueIndex}>
-              {getAnswerText(answer?.questionId, value)}
-            </p>
-          ))}
+          <ul className="c-answerTextList">
+            {answer?.values.map((value, valueIndex) => (
+              <li className="text" key={valueIndex}>
+                {getAnswerText(answer?.questionId, value)}
+              </li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>
