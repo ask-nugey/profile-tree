@@ -18,7 +18,7 @@ export const Main = ({
   const question = questions[index];
 
   const [selectedValues, handleChoice] = useChoices(question?.type, []);
-  const [answers, handleComplete] = useAnswerHandling([]);
+  const [answers, handleComplete] = useAnswerHandling();
 
   return (
     <>

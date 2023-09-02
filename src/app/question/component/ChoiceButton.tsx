@@ -5,11 +5,11 @@ export const ChoiceButton = ({
   displayValue,
   onClick,
 }: {
-  isSelected: boolean;
-  colorCode: string;
-  value: string | number;
-  displayValue: string;
-  onClick: (value: string | number) => void;
+  isSelected?: boolean;
+  colorCode?: string;
+  value?: string | number;
+  displayValue?: string;
+  onClick: (value?: string | number) => void;
 }) => (
   <button
     className={`c-questioItem ${isSelected ? "selected" : ""}`}

@@ -91,7 +91,7 @@ export enum RangeDisplayType {
 }
 
 // 範囲選択のデータ型
-type RangeChoice = BaseChoice & {
+export type RangeChoice = BaseChoice & {
   type: "range";
   minValue: number;
   maxValue: number;
