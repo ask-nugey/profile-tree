@@ -10,7 +10,7 @@ export default async function Page({
   const res = await fetch("https://profile-tree-beige.vercel.app/question/api");
   const questions: Question[] = await res.json();
   const index = Number(searchParams.index);
-  const limit = 5; //質問の数
+  const limit = 4; //質問の数
 
   return (
     <main>

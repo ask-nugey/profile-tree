@@ -1,85 +1,271 @@
 {
   "questions": [
-    {
-      "id": 1,
-      "content": "あなたの好きな色は何ですか？",
-      "displayType": "text_and_icon",
-      "categoryIds": 1,
-      "tagIds": [1, 2],
-      "groupIds": [1],
-      "prefix": "好きな色",
-      "icon": "color_icon",
-      "type": "single_choice",
-      "choices": [
-        {
-          "type": "text",
-          "value": "red",
-          "displayValue": "赤",
-          "answerText": "赤",
-          "description": "情熱的な色",
-          "colorCode": "#FF0000",
-          "icon": "red_icon"
-        },
-        {
-          "type": "text",
-          "value": "blue",
-          "displayValue": "青",
-          "answerText": "青",
-          "description": "落ち着いた色",
-          "colorCode": "#0000FF",
-          "icon": "blue_icon"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "content": "あなたの年齢は？",
-      "displayType": "text",
-      "categoryIds": 2,
-      "tagIds": [3],
-      "prefix": "年齢",
-      "type": "numeric",
-      "choices": [
-        {
-          "type": "range",
-          "minValue": 0,
-          "maxValue": 150,
-          "stepSize": 1,
-          "default": 75,
-          "unit": "歳",
-          "displayType": "slider",
-          "answerText": "年齢"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "content": "好きな数字を選んでください。",
-      "displayType": "text",
-      "categoryIds": 3,
-      "tagIds": [4, 5],
-      "prefix": "好きな数字",
-      "type": "multiple_choice",
-      "choices": [
-        {
-          "type": "text",
-          "value": "one",
-          "displayValue": "1",
-          "answerText": "1"
-        },
-        {
-          "type": "text",
-          "value": "two",
-          "displayValue": "2",
-          "answerText": "2"
-        },
-        {
-          "type": "text",
-          "value": "three",
-          "displayValue": "3",
-          "answerText": "3"
-        }
-      ]
-    }
+    [
+      {
+        "id": 1,
+        "content": "好きな色は何ですか？",
+        "displayType": "text_and_icon",
+        "categoryIds": 1,
+        "tagIds": [1, 2],
+        "groupIds": [1],
+        "prefix": "好きな色",
+        "icon": "color_icon",
+        "type": "multiple_choice",
+        "choices": [
+          {
+            "type": "text",
+            "value": "red",
+            "displayValue": "🟥 赤",
+            "answerText": "🟥 赤",
+            "description": "情熱的な色",
+            "colorCode": "#FF0000",
+            "icon": "red_icon"
+          },
+          {
+            "type": "text",
+            "value": "blue",
+            "displayValue": "🟦 青",
+            "answerText": "🟦 青",
+            "description": "落ち着いた色",
+            "colorCode": "#0000FF",
+            "icon": "blue_icon"
+          },
+          {
+            "type": "text",
+            "value": "green",
+            "displayValue": "🟩 緑",
+            "answerText": "🟩 緑",
+            "description": "自然を思わせる色",
+            "colorCode": "#006400",
+            "icon": "green_icon"
+          },
+          {
+            "type": "text",
+            "value": "yellow",
+            "displayValue": "🟨 黄",
+            "answerText": "🟨 黄",
+            "description": "明るく、元気な色",
+            "colorCode": "#DAA520",
+            "icon": "yellow_icon"
+          },
+          {
+            "type": "text",
+            "value": "orange",
+            "displayValue": "🟧 橙",
+            "answerText": "🟧 橙",
+            "description": "活発でエネルギッシュな色",
+            "colorCode": "#FF8C00",
+            "icon": "orange_icon"
+          },
+          {
+            "type": "text",
+            "value": "purple",
+            "displayValue": "🟪 紫",
+            "answerText": "🟪 紫",
+            "description": "神秘的で豪華な色",
+            "colorCode": "#800080",
+            "icon": "purple_icon"
+          },
+          {
+            "type": "text",
+            "value": "brown",
+            "displayValue": "🟫 茶",
+            "answerText": "🟫 茶",
+            "description": "安定していて、地球の色",
+            "colorCode": "#8B4513",
+            "icon": "brown_icon"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "content": "趣味は何ですか？",
+        "displayType": "text_and_icon",
+        "categoryIds": 4,
+        "tagIds": [6, 7],
+        "prefix": "趣味",
+        "icon": "hobby_icon",
+        "type": "multiple_choice",
+        "choices": [
+          {
+            "type": "text",
+            "value": "reading",
+            "displayValue": "📚 読書",
+            "answerText": "📚 読書",
+            "icon": "book_icon"
+          },
+          {
+            "type": "text",
+            "value": "sports",
+            "displayValue": "🏃‍♂ スポーツ",
+            "answerText": "🏃‍♂ スポーツ",
+            "icon": "sports_icon"
+          },
+          {
+            "type": "text",
+            "value": "music",
+            "displayValue": "🎶 音楽",
+            "answerText": "🎶 音楽",
+            "icon": "music_icon"
+          },
+          {
+            "type": "text",
+            "value": "cooking",
+            "displayValue": "🍳 料理",
+            "answerText": "🍳 料理",
+            "icon": "cooking_icon"
+          },
+          {
+            "type": "text",
+            "value": "travel",
+            "displayValue": "🛫 旅行",
+            "answerText": "🛫 旅行",
+            "icon": "travel_icon"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "content": "旅行先として行きたい場所はどこですか？",
+        "displayType": "text_and_icon",
+        "categoryIds": 5,
+        "tagIds": [8, 9],
+        "prefix": "旅行先",
+        "icon": "destination_icon",
+        "type": "single_choice",
+        "choices": [
+          {
+            "type": "text",
+            "value": "beach",
+            "displayValue": "🌊 海",
+            "answerText": "🌊 海",
+            "icon": "beach_icon"
+          },
+          {
+            "type": "text",
+            "value": "mountains",
+            "displayValue": "🗻 山",
+            "answerText": "🗻 山",
+            "icon": "mountains_icon"
+          },
+          {
+            "type": "text",
+            "value": "city",
+            "displayValue": "🏘 都市",
+            "answerText": "🏘 都市",
+            "icon": "city_icon"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "content": "どの季節が好きですか？",
+        "displayType": "text_and_icon",
+        "categoryIds": 6,
+        "tagIds": [10, 11],
+        "prefix": "好きな季節",
+        "icon": "season_icon",
+        "type": "single_choice",
+        "choices": [
+          {
+            "type": "text",
+            "value": "spring",
+            "displayValue": "🌸 春",
+            "answerText": "🌸 春",
+            "icon": "spring_icon"
+          },
+          {
+            "type": "text",
+            "value": "summer",
+            "displayValue": "🌞 夏",
+            "answerText": "🌞 夏",
+            "icon": "summer_icon"
+          },
+          {
+            "type": "text",
+            "value": "autumn",
+            "displayValue": "🍄 秋",
+            "answerText": "🍄 秋",
+            "icon": "autumn_icon"
+          },
+          {
+            "type": "text",
+            "value": "winter",
+            "displayValue": "⛄ 冬",
+            "answerText": "⛄ 冬",
+            "icon": "winter_icon"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "content": "好きな数字を選んでください。",
+        "displayType": "text",
+        "categoryIds": 3,
+        "tagIds": [4, 5],
+        "prefix": "好きな数字",
+        "type": "multiple_choice",
+        "choices": [
+          {
+            "type": "text",
+            "value": "one",
+            "displayValue": "1",
+            "answerText": "1"
+          },
+          {
+            "type": "text",
+            "value": "two",
+            "displayValue": "2",
+            "answerText": "2"
+          },
+          {
+            "type": "text",
+            "value": "three",
+            "displayValue": "3",
+            "answerText": "3"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "content": "どの動物が好きですか？",
+        "displayType": "text_and_icon",
+        "categoryIds": 7,
+        "tagIds": [12, 13],
+        "prefix": "好きな動物",
+        "icon": "animal_icon",
+        "type": "multiple_choice",
+        "choices": [
+          {
+            "type": "text",
+            "value": "cat",
+            "displayValue": "🐱 猫",
+            "answerText": "🐱 猫",
+            "icon": "cat_icon"
+          },
+          {
+            "type": "text",
+            "value": "dog",
+            "displayValue": "🐶 犬",
+            "answerText": "🐶 犬",
+            "icon": "dog_icon"
+          },
+          {
+            "type": "text",
+            "value": "rabbit",
+            "displayValue": "🐰 うさぎ",
+            "answerText": "🐰 うさぎ",
+            "icon": "rabbit_icon"
+          },
+          {
+            "type": "text",
+            "value": "bird",
+            "displayValue": "🐦 鳥",
+            "answerText": "🐦 鳥",
+            "icon": "bird_icon"
+          }
+        ]
+      }
+    ]
   ]
 }
