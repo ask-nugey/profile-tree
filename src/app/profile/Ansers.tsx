@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Answer,
@@ -7,26 +7,20 @@ import {
   QuestionType,
   TextChoice,
 } from "@/types";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
-  answers: Answer[];
+  // answers: Answer[] | null;
   questions: Question[] | null;
-  setQuestions: Function;
 }
 
-export default function Ansers({ answers, questions, setQuestions }: Props) {
+export default function Ansers({ questions }: Props) {
+  const [answers, setAnswers] = useState<Answer[] | null>(null);
+
   useEffect(() => {
-    const getData = async () => {
-      const res = await fetch(`/question/api/`, {
-        next: { revalidate: 60 },
-      });
-      const data = await res.json();
-
-      setQuestions(data);
-    };
-
-    getData();
+    const retrievedAnswers: any = localStorage.getItem("answers");
+    const answers = JSON.parse(retrievedAnswers);
+    setAnswers(answers);
   }, []);
 
   // questionId から prefix を取得するヘルパー関数
@@ -67,7 +61,7 @@ export default function Ansers({ answers, questions, setQuestions }: Props) {
 
   return (
     <div className="c-answerList">
-      {answers.map((answer, index) => (
+      {answers?.map((answer, index) => (
         <div className="c-answerItem" key={index}>
           <p className="title">{getQuestionPrefix(answer?.questionId)}</p>
           <ul className="c-answerTextList">
