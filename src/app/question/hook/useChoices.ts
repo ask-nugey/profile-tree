@@ -1,16 +1,21 @@
 import { QuestionType } from "@/types";
 import { useState } from "react";
 
+type UseChoicesReturn = [
+  (string | number | undefined)[],
+  (choiceValue?: string | number) => void
+];
+
 export const useChoices = (
   questionType: QuestionType,
   initialSelectedValues: (string | number)[]
-) => {
-  const [selectedValues, setSelectedValues] = useState<(string | number)[]>(
+): UseChoicesReturn => {
+  const [selectedValues, setSelectedValues] = useState<(string | number | undefined)[]>(
     initialSelectedValues
   );
 
-  const handleChoice = (choiceValue: string | number) => {
-    let newSelectedValues: (string | number)[] = [];
+  const handleChoice = (choiceValue?: string | number) => {
+    let newSelectedValues: (string | number | undefined)[] = [];
 
     if (questionType === QuestionType.SINGLE_CHOICE) {
       newSelectedValues = [choiceValue];

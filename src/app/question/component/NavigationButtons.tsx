@@ -9,9 +9,9 @@ export const NavigationButtons = ({
 }: {
   index: number;
   limit: number;
-  onNavigate: (questionId: number, selectedValues: (string | number)[]) => void;
+  onNavigate: (questionId: number, values: (string | number | undefined)[]) => void;
   questionId: number;
-  selectedValues: (string | number)[];
+  selectedValues: (string | number | undefined)[]
 }) => (
   <div className="c-btn__wrap">
     {index < limit ? (

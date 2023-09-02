@@ -8,7 +8,7 @@ export default function Header() {
       <h1>
         <Link href="/">プロフィールツリー 🌲</Link>
       </h1>
-      <Navigation navLinks={navLinks} />
+      {/* <Navigation navLinks={navLinks} /> */}
     </header>
   )
 }

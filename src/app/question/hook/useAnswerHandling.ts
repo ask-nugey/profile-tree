@@ -1,19 +1,18 @@
 import { Answer } from "@/types";
 import { useState } from "react";
 
-type UseAnswerHandlingProps = {
-  initialAnswers: Answer[];
-};
-
 type UseAnswerHandlingReturn = [
   Answer[],
-  (questionId: number, values: (string | number)[]) => void
+  (questionId: number, values: (string | number | undefined)[]) => void
 ];
 
 export const useAnswerHandling = (): UseAnswerHandlingReturn => {
   const [answers, setAnswers] = useState<Answer[]>([]);
 
-  const handleComplete = (questionId: number, values: (string | number)[]) => {
+  const handleComplete = (
+    questionId: number,
+    values?: (string | number | undefined)[]
+  ) => {
     const newAnswer = { questionId, values };
     setAnswers((prevAnswers) => {
       // ローカルストレージから現在の回答を取得
@@ -30,6 +29,7 @@ export const useAnswerHandling = (): UseAnswerHandlingReturn => {
       // マージされた回答リストをローカルストレージに保存
       localStorage.setItem("answers", JSON.stringify(updatedAnswers));
 
+      setAnswers([]);
       return updatedAnswers;
     });
   };
