@@ -1,6 +1,6 @@
 // ＜ナビリンク＞
 export type NavLink = {
-  href: string;
+  href: string[];
   name: string;
 };
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
+import { useSelectedLayoutSegments } from 'next/navigation'
 import Link from 'next/link'
 import { NavLink } from '@/types';
 
@@ -9,24 +9,23 @@ interface Props {
 }
 
 export function Navigation({ navLinks }: Props) {
-  const pathname = usePathname()
+  const segments = useSelectedLayoutSegments();
 
   return (
-    <>
+    <ul>
       {navLinks.map((link) => {
-        const isActive = pathname === link.href
+        const isActive = segments[0] === link.href[0]
 
         return (
           <Link
-            className={isActive ? 'is-active' : ''}
-            // className={`${styles.link} ${pathname === '/' ? styles.active : ''}`}
-            href={link.href}
+            className={isActive ? "is-active" : ""}
+            href={`/${link.href.join("/")}`}
             key={link.name}
           >
             {link.name}
           </Link>
-        )
+        );
       })}
-    </>
+    </ul>
   )
 }

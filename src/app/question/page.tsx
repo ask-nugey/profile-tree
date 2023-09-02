@@ -1,39 +1,30 @@
-"use client";
+import { Main } from "@/app/question/Main";
+import { Question } from "@/types";
+import Link from "next/link";
 
-import { useRouter } from "next/navigation";
-import { useQuestionnaire } from "@/app/question/useQuestionnaire";
-import { useQuestion } from "@/app/question/useQuestion";
-import { useEffect } from "react";
-import QuestionList from "@/app/question/QuestionList";
-
-export default function Page() {
-  const router = useRouter();
-  const { currentIndex, goToNextQuestion, isComplete } = useQuestionnaire();
-  const { question } = useQuestion(currentIndex);
-
-  useEffect(() => {
-    if (isComplete) {
-      router.push("/profile");
-    }
-  }, [isComplete, router]);
-
-  const handleChoiceClick = (
-    questionId: number,
-    values: (string | number)[]
-  ): void => {
-    goToNextQuestion(questionId, values);
-  };
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: { index: number };
+}) {
+  const res = await fetch("http://localhost:3000/question/api");
+  const questions: Question[] = await res.json();
+  const index = Number(searchParams.index);
+  const limit = 5; //質問の数
 
   return (
     <main>
       <div className="c-block">
-        <h1 className="c-questionTitle">{question?.content}</h1>
-
-        <QuestionList
-          question={question}
-          handleChoiceClick={handleChoiceClick}
-        />
-
+        {index >= 0 && index <= limit ? (
+          <>
+            <h1 className="c-questionTitle">{questions[index].content}</h1>
+            <Main questions={questions} index={index} limit={limit} />
+          </>
+        ) : (
+          <Link href="?index=0" className="c-btn">
+            質問に答える
+          </Link>
+        )}
       </div>
     </main>
   );
